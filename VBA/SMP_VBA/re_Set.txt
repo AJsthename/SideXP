@@ -1,0 +1,17 @@
+' Entleert den Rohdaten-Tabellenumfang, um neue Daten reinmachen zu können
+' Setzt auch die Nummerierung von den Landreferenzzahlen bei Modifizierung zurück.
+' Knopf: Reset (in "Rohdaten")
+' Erstellungsdatum: 04.03.2024
+' Aktualisierungsdatum: 23.05.2024. reNumber() wurde zum Aufruf hinzugefügt.
+
+Sub re_Set()
+'
+' re_Set Makro
+'
+
+'
+    Range("B3:H998").Select
+    Selection.ClearContents
+' Nummerierung zurücksetzen
+    reNumber
+End Sub

@@ -1,0 +1,12 @@
+'Einzelner Brief ausdrucken lassen
+'Wird in "Briefvorlage" verwendet, Knopf: Drucken 
+
+Sub printLetter()
+'
+' printLetter Makro
+'
+
+'
+    ActiveWindow.SelectedSheets.PrintOut From:=1, To:=1, Copies:=1, Collate _
+        :=True, IgnorePrintAreas:=False
+End Sub

@@ -1,0 +1,15 @@
+Sub reNumber()
+'
+' reNumber Makro
+' Aufgezeichnetes Makro
+' Nummerierung zurücksetzen (Rohdaten: Spalte A)
+' Wird im Makro re_Set() aufgerufen 
+' Erstellungsdatum: 23.05.2024
+
+'
+    Range("A3:A4").Select
+    Selection.AutoFill Destination:=Range("A3:A46"), Type:=xlFillDefault
+    Range("A3:A46").Select
+    Selection.AutoFill Destination:=Range("A3:A996"), Type:=xlFillDefault
+    Range("A3:A996").Select
+End Sub

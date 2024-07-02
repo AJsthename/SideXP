@@ -1,0 +1,23 @@
+' Setze die editierbaren Zellen in Einführung auf leeren Zustand
+' zurück
+' Knopf: Reset Login (in "Einführung")
+' Datum: 04.03.2024
+
+Sub re_Login()
+'
+' re_Login Makro
+'
+
+'
+    Range("B3").Select
+    ActiveCell.FormulaR1C1 = ""
+    Range("B5").Select
+    ActiveCell.FormulaR1C1 = ""
+    Range("B7").Select
+    ActiveCell.FormulaR1C1 = ""
+    Range("B9").Select
+    ActiveCell.FormulaR1C1 = ""
+    Range("B11").Select
+    ActiveCell.FormulaR1C1 = ""
+    Range("B13").Select
+End Sub

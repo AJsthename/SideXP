@@ -1,0 +1,36 @@
+' Kernstück von SBX-Alpha_2.0
+' Damit kann der User je nach Wunsch Briefe in PDF-Form speichern
+' Knopf: Save (in "Briefvorlage")
+
+Sub sSave_Infinite()
+    Dim targetCell_1 As Range
+    Dim targetCell_2 As Range
+    Dim nameCell As Worksheet
+    Dim i As Long
+    Dim filePath As String
+    
+    Set targetCell_1 = ThisWorkbook.Worksheets("Briefvorlage").Range("J8")
+    Set targetCell_2 = ThisWorkbook.Worksheets("Briefvorlage").Range("P8")
+    Set nameCell = ThisWorkbook.Worksheets("Briefvorlage")
+    
+    i = targetCell_1.Value
+    
+    filePath = InputBox("Speicherort bitte angeben:", "Save PDF files")
+    If filePath = "" Then
+        MsgBox "Kein Speicherort angegeben!", vbExclamation
+        Exit Sub
+    End If
+    
+    If IsNumeric(targetCell_1.Value) And IsNumeric(targetCell_2.Value) Then
+        While i <= targetCell_2.Value
+            save_As_PDF_Short filePath & "\SATV_Group_Affiliate_" & nameCell.Cells(20, 2).Value & ".pdf"
+            i = i + 1
+            
+            targetCell_1.Value = i
+        Wend
+        
+        MsgBox "PDF file(s) saved successfully.", vbInformation
+    Else
+         MsgBox "Eine oder beide Zellen enthalten keine Zahl.", vbExclamation
+    End If
+End Sub

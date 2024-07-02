@@ -1,0 +1,34 @@
+' Drucke aktuellen Brief als PDF aus
+' Befindet sich in Briefvorlage, Knopf: OneSave
+
+Sub save_As_PDF_3()
+    Dim filePath As String
+    Dim fileName As String
+    Dim wsTemplate As Worksheet
+    Dim userPath As String
+    Dim rTemplate As Range
+    
+    Set wsTemplate = ThisWorkbook.Worksheets("Briefvorlage")
+    
+    ' Benenne die Datei und setze sie als PDF
+    fileName = "SATV Group Affiliate-" & wsTemplate.Cells(20, 2) & ".pdf"
+    
+    ' Eingabebereich: hier kann der User bekannt geben wo er die PDFs
+    ' speichern will
+    userPath = InputBox("Speicherort bitte angeben:", "Als PDF speichern")
+    If userPath = "" Then
+        MsgBox "Kein Speicherort angegeben!", vbExclamation
+        Exit Sub
+    End If
+    
+    ' Aufbau des vollständigen Pfaden
+    filePath = userPath & "\" & fileName
+    
+    Set rTemplate = wsTemplate.Range("A1:G46")
+    
+    ' Erstelle die PDF-Datei selbst
+    rTemplate.ExportAsFixedFormat Type:=xlTypePDF, fileName:=filePath, Quality:=xlQualityStandard
+    
+    MsgBox "PDF file(s) saved successfully.", vbInformation
+          
+End Sub

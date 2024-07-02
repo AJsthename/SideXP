@@ -1,0 +1,15 @@
+'Dient dazu die Briefe tatsächlich in PDF-Form zu erstellen
+'Ist Teil des Kernstücks unseres Programms (sSave_Infinite())
+'Wird in sSave_Infinite() in der while-Schleife (Linie 17) aufgerufen (Zeile 18)
+
+Sub save_As_PDF_Short(filePath As String)
+    Dim rTemplate As Range
+
+    'Definiere rTemplate als unser Objekt, das als PDF formatiert werden soll
+    'Drucke die Zellen A1:G46 in PDF aus
+
+    Set rTemplate = ThisWorkbook.Worksheets("Briefvorlage").Range("A1:G46")
+    
+    rTemplate.ExportAsFixedFormat Type:=xlTypePDF, fileName:=filePath, Quality:=xlQualityStandard
+    
+End Sub

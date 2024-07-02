@@ -1,0 +1,14 @@
+'Decrement2() dient zur Steuerung der Anzahl der zu druckenden Briefe
+'Wird im zweiten "-" Knopf angewendet
+Sub Decrement2()
+    Dim targetCell As Range
+    Set targetCell = ThisWorkbook.Worksheets("Briefvorlage").Range("P8")
+    
+    If IsNumeric(targetCell.Value) Then
+        If targetCell.Value > 0 Then
+            targetCell.Value = targetCell.Value - 1
+        End If
+    Else
+        MsgBox "Die Zelle enthält keine Zahl.", vbExclamation
+    End If
+End Sub

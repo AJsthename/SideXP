@@ -1,0 +1,14 @@
+' Formatierung im Rohdaten-Tabellenumfang zurücksetzen
+' Knopf: Reformat (in "Rohdaten")
+' Datum: 04.03.2024
+ 
+Sub reformat2()
+'
+' reformat2 Makro
+'
+
+'
+    Range("B3:B998").Select
+    Selection.NumberFormat = "@"
+    Range("B34").Select
+End Sub

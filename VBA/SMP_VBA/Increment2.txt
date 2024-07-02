@@ -1,0 +1,18 @@
+'Increment2() dient zur Steuerung der Anzahl der zu druckenden Briefe
+'Wird im zweiten "+" Knopf angewendet
+Sub Increment2()
+    Dim targetCell_1 As Range
+    Dim targetCell_2 As Range
+    
+    Set targetCell_1 = ThisWorkbook.Worksheets("Briefvorlage").Range("P8")
+    
+    Set targetCell_2 = ThisWorkbook.Worksheets("Briefvorlage").Range("M5")
+    
+    If IsNumeric(targetCell_1.Value) And IsNumeric(targetCell_2.Value) Then
+        If targetCell_1.Value < targetCell_2.Value Then
+            targetCell_1.Value = targetCell_1.Value + 1
+        End If
+    Else
+        MsgBox "Die Zelle enthält keine Zahl.", vbExclamation
+    End If
+End Sub
